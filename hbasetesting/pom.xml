@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>zhaoyu.hbase.testing</groupId>
+  <artifactId>example</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <properties>
+    <hbase.version>0.98.12-hadoop2</hbase.version>
+    <conflictguava.version>18.0</conflictguava.version>
+  </properties>
+
+  <dependencies>
+    <!-- if use this, because of the guava library conflict, hbase mini cluster can not be started -->
+    <!--<dependency>-->
+    <!--<groupId>org.apache.hbase</groupId>-->
+    <!--<artifactId>hbase-testing-util</artifactId>-->
+    <!--<version>${hbase.version}</version>-->
+    <!--<scope>test</scope>-->
+    <!--</dependency>-->
+
+    <!-- hbase-testing-util is shadowed in this library-->
+    <dependency>
+      <groupId>zhaoyu.hbase.testing</groupId>
+      <artifactId>shadow</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- this will lead to a dependency conflict, if not use below shadow jar, mini cluster could not be started-->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${conflictguava.version}</version>
+    </dependency>
+  </dependencies>
+</project>
