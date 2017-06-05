@@ -6,8 +6,6 @@ This repository is an example of
 
 ### how to run the test
 ```bash
-// maven and git are required for run the test
-
 // clone the code
 git clone https://github.com/zhao-y/hbasetestingexample.git
 
